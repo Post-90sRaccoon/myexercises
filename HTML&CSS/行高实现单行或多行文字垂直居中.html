@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .a {
+      line-height: 30px;
+      border: dotted 1px black;
+    }
+
+    div {
+      border: 1px dashed #cccccc;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    i {
+      line-height: 150px;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+    }
+
+    /* div定高 靠i的inline-height撑开  */
+  </style>
+</head>
+
+<body>
+  <h3>单行文字</h3>
+  <p class="a">这是高度为30像素的单行文字</p>
+
+  <h4>多行文字</h4>
+  <div>
+    <span>这里是高度为150像素的标签内的多行文字，文字大小为12像素。Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. In dolorum rem distinctio, quod consequatur expedita pariatur eligendi vel ex architecto est ad id, sunt sed
+      adipisci repellendus dolor aperiam cumque!<br />这里是第二行，用来测试多行的显示效果。</span><i>&nbsp;</i>
+  </div>
+</body>
+
+</html>
