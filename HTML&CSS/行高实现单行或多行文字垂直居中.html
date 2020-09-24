@@ -28,6 +28,26 @@
     }
 
     /* div定高 靠i的inline-height撑开  */
+
+    section {
+      margin-top: 20px;
+      font-size: 0px;
+      line-height: 120px;
+      /*对齐匿名文本x的中点 align middle*/
+      text-align: center;
+      background-color: grey;
+    }
+
+
+    section span {
+      line-height: normal;
+      font-size: 16px;
+      width: 150px;
+      xdisplay: inline-block;
+      border: 1px solid;
+      xvertical-align: middle;
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -41,6 +61,11 @@
       elit. In dolorum rem distinctio, quod consequatur expedita pariatur eligendi vel ex architecto est ad id, sunt sed
       adipisci repellendus dolor aperiam cumque!<br />这里是第二行，用来测试多行的显示效果。</span><i>&nbsp;</i>
   </div>
+
+
+  <section>
+    <span>Lorem ipsum dolor sit amet. Lorem ipsum dolor sir a</span>
+  </section>
 </body>
 
 </html>
