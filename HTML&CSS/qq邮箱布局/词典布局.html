@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 1px black;
+      /* 阴影不影响布局 */
+    }
+
+    /* 不需要去掉margin 全都是定位 脱离常规流了 */
+    .a {
+      width: 20%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .b {
+      width: 20%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 20%;
+    }
+
+    .c {
+      width: 20%;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    main {
+      position: fixed;
+      width: 40%;
+      bottom: 0;
+      left: 20%;
+      top: 100px;
+    }
+
+    header {
+      top: 0;
+      height: 100px;
+      position: fixed;
+      left: 20%;
+      right: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="a">a</aside>
+  <header>header</header>
+  <main>main content</main>
+  <aside class="b">b</aside>
+  <aside class="c">c</aside>
+</body>
+
+</html>
