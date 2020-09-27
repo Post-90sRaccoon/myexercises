@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    header {
+      background-color: rgb(32, 100, 200);
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      color: white;
+      width: 800px;
+      margin: auto;
+      line-height: 40px;
+    }
+
+    li {
+      border-right: 2px solid rgb(55, 116, 206);
+      display: inline-block;
+      padding: 0 10px;
+      position: relative;
+    }
+
+    li[data-tip]::before {
+      content: '';
+      width: 0;
+      border: 5px solid;
+      border-right-width: 0;
+      border-color: transparent transparent transparent rgb(255, 142, 0);
+      position: absolute;
+      top: 0%;
+      left: 52%;
+    }
+
+    li[data-tip]::after {
+      line-height: normal;
+      content: attr(data-tip);
+      position: absolute;
+      font-size: 8px;
+      background-color: rgb(255, 142, 0);
+      /* 不能在右边超过父元素 超过就尽可能窄 */
+      white-space: nowrap;
+      /* 不换行 */
+      left: 40%;
+      top: -27%;
+    }
+
+    li[data-tip]:hover::after {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <ul>
+      <li>首页</li>
+      <li>国内酒店</li>
+      <li data-tip='低价促'>海外酒店</li>
+      <li data-tip="新升级">国内·国际机票</li>
+      <li>火车票</li>
+      <li>汽车票</li>
+      <li>商旅</li>
+    </ul>
+  </header>
+</body>
+
+</html>
