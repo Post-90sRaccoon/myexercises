@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container {
+      position: relative;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      background-color: rgb(60, 60, 60);
+      font-size: 0;
+    }
+
+    ul>* {
+      font-size: 16px;
+    }
+
+    .one {
+      display: inline-block;
+      color: rgb(186, 186, 186);
+      padding: 0 10px;
+      vertical-align: middle;
+    }
+
+    .one:hover {
+      background-color: rgb(71, 71, 72);
+    }
+
+    .two-container {
+      position: absolute;
+    }
+
+    .two {
+      padding-left: 30px;
+    }
+
+    .two-container {
+      width: 350px;
+      left: 0;
+      line-height: 1.8;
+      display: none;
+    }
+
+    .line {
+      border: 1px solid rgb(186, 186, 186);
+      line-height: 100px;
+      background-color: red;
+      width: 95%;
+      margin: auto;
+    }
+
+    .two:hover {
+      background-color: rgb(9, 71, 113);
+    }
+
+    [data-short]::before {
+      content: attr(data-short);
+      position: absolute;
+      right: 30px;
+    }
+
+    .two,
+    .one {
+      position: relative;
+    }
+
+    [data-arrow]::before {
+      content: attr(data-arrow);
+      position: absolute;
+      right: 12px;
+    }
+
+    .one:hover>.two-container {
+      display: block;
+    }
+
+    .three-container {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 350px;
+      display: none;
+    }
+
+    [data-arrow]:hover>.three-container {
+      display: block;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 22px;
+      height: 21px;
+      background: url(icon.png), rgb(60, 60, 60);
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="container">
+    <li class="icon"></li>
+    <li class="one">File
+      <ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">Edit<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">Selection<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">View<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">Go<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">Run<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">Terminal<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+    <li class="one">Help<ul class="two-container">
+        <li class="two" data-short="Crtl+N">New Flie</li>
+        <li class="two" data-short="Crtl+Shift+N">New Window</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+O">Open Flie</li>
+        <li class="two" data-short="Crtl+K Crtl+O">Open Folder...</li>
+        <li class="two">Open Workspace</li>
+        <li class="two" data-arrow=">">Open Recent
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+Shift+T">Reopen Closed Editor</li>
+            <li class="line"></li>
+            <li class="two">E:\study</li>
+            <li class="two">C:\Users\Destop\html</li>
+            <li class="two">C:\Users\Destop\css</li>
+            <li class="two">C:\Users\Destop\positon</li>
+            <li class="two">C:\Users\Destop\sudeuo</li>
+            <li class="two">C:\Users\Destop\bg</li>
+            <li class="line"></li>
+            <li class="two" data-short="Crtl+R">More...</li>
+            <li class="line"></li>
+            <li class="two">Clear Recently Opened</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Add Folder to Workspace...</li>
+        <li class="two">Save Workspace As...</li>
+        <li class="line"></li>
+        <li class="two" data-short="Crtl+S">Save</li>
+        <li class="two" data-short="Crtl+Shift+S">Save as</li>
+        <li class="two" data-short="Crtl+K+S">Save All</li>
+        <li class="line"></li>
+        <li class="two">Auto Save</li>
+        <li class="two" data-arrow=">">Preferences
+          <ul class="three-container">
+            <li class="two" data-short="Crtl+,">Settings</li>
+            <li class="two">Online Services Settings</li>
+            <li class="two" data-short="Ctrl+Shift+X">Extensions</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+S">Keyboard Shortcuts</li>
+            <li class="two" data-short="Ctrl+K Ctrl+M">Keymaps</li>
+            <li class="line"></li>
+            <li class="two">User Snippets</li>
+            <li class="line"></li>
+            <li class="two" data-short="Ctrl+K Ctrl+T">Color Theme</li>
+            <li class="two">File Icon Theme</li>
+            <li class="line"></li>
+            <li class="two">Turn on Settings Sync</li>
+          </ul>
+        </li>
+        <li class="line"></li>
+        <li class="two">Revert File</li>
+        <li class="two" data-short="Crtl+F4">Close Editor</li>
+        <li class="two" data-short="Crtl+K F">Close Folder</li>
+        <li class="two" data-short="Crtl+W">Close Window</li>
+        <li class="line"></li>
+        <li class="two">Exit</li>
+      </ul>
+    </li>
+  </ul>
+</body>
+
+</html>
