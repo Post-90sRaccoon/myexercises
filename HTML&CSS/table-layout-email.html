@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .input-group {
+      border-collapse: separate;
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .input-group-addon {
+      display: table-cell;
+      border: 2px solid red;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      width: 1px;
+      /* 尽可能窄 */
+    }
+
+    .form-control {
+      display: table-cell;
+      width: 95%;
+      /* 为了让元素尽量占满 */
+      border: 2px solid red;
+      font: inherit;
+      border-radius: 0 5px 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="input-group">
+    <span class="input-group-addon">@asdf</span>
+    <input type="text" class="form-control" placeholder="Username" />
+  </div>
+</body>
+
+</html>
