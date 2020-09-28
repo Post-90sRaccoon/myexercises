@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    ul {
+      background-color: rgb(60, 60, 60);
+      color: rgb(204, 204, 204);
+      position: relative;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul>li {
+      display: inline-block;
+      padding: 10px;
+      position: relative;
+      white-space: nowrap;
+      /* 不折行 */
+    }
+
+    ul>li>ul>li {
+      display: block;
+    }
+
+    ul>li:hover {
+      background-color: rgb(80, 80, 80);
+    }
+
+
+    ul>li>ul {
+      font-size: 14px;
+      background-color: rgb(37, 37, 38);
+      color: rgb(204, 204, 204);
+      width: 250px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+    }
+
+    ul>li:hover>ul {
+      display: block;
+      z-index: 10;
+    }
+
+    ul>li>ul {
+      padding: 0;
+    }
+
+    ul>li>ul li:hover {
+      background-color: rgb(9, 71, 113);
+    }
+
+    ul>li>ul li[data-tip]::before {
+      content: attr(data-tip);
+      position: absolute;
+      right: 10%;
+    }
+
+    ul>li>ul li[data-next]::before {
+      content: '>';
+      position: absolute;
+      right: 5%;
+    }
+
+    li[data-next] ul {
+      position: absolute;
+      left: 100%;
+      top: 0;
+    }
+
+    #icon {
+      background-image: url('icon-vscode.png');
+      background-repeat: no-repeat;
+    }
+  </style>
+
+</head>
+
+<body>
+  <ul class="nav">
+    <li id="icon"></li>
+    <li id="first">File
+      <ul>
+        <li data-tip="Ctrl+N">New File</li>
+        <li data-tip="Ctrl+Shift+N">New Window</li>
+        <li data-tip="Ctrl+O">Open File</li>
+        <li data-next="y">Open Recent
+          <ul>
+            <li data-tip="Ctrl+S">Save</li>
+            <li data-tip="Ctrl+Shift+S">Save as</li>
+            <li data-tip="Ctrl+K S">Save all</li>
+          </ul>
+        </li>
+        <li>Open Folder</li>
+        <li>Open WorkSpace</li>
+        <li data-next="y">Preference
+          <ul>
+            <li data-tip="Ctrl+N">New File</li>
+            <li data-tip="Ctrl+Shift+N">New Window</li>
+            <li data-tip="Ctrl+O">Open File</li>
+            <li data-next="y">Open Recent
+              <ul>
+                <li data-tip="Ctrl+S">Save</li>
+                <li data-tip="Ctrl+Shift+S">Save as</li>
+                <li data-tip="Ctrl+K S">Save all</li>
+              </ul>
+            </li>
+            <li>Open Folder</li>
+          </ul>
+        </li>
+        <li data-tip="Ctrl+S">Save</li>
+        <li data-tip="Ctrl+Shift+S">Save as</li>
+        <li data-tip="Ctrl+K S">Save all</li>
+        <li>Auto Save</li>
+      </ul>
+    </li>
+
+
+    <li>Edit
+      <ul>
+        <li>New File</li>
+        <li>New Window</li>
+        <li>Open File</li>
+        <li>Open Folder</li>
+      </ul>
+    </li>
+
+    <li>Selection
+      <ul>
+        <li>New File</li>
+        <li>New Window</li>
+        <li>Open File</li>
+        <li>Open Folder</li>
+      </ul>
+    </li>
+
+    <li>View
+      <ul>
+        <li>New File</li>
+        <li>New Window</li>
+        <li>Open File</li>
+        <li>Open Folder</li>
+      </ul>
+    </li>
+    <li>Go
+    </li>
+    <li>Debug</li>
+    <li>Terminal</li>
+    <li>Help</li>
+  </ul>
+</body>
+
+</html>
