@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= , initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      background-color: rgb(0, 0, 0, 0.1);
+    }
+
+    html,
+    body,
+    div {
+      height: 100%;
+      margin: 0;
+    }
+
+    aside {
+      width: 150px;
+      height: 100%;
+      float: left;
+    }
+
+    main {
+      border: 5px solid red;
+      xdisplay: flow-root;
+      /*触发bfc  让他靠在aside右侧*/
+      overflow: hidden;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    section {
+      width: 200px;
+      float: right;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <aside>left</aside>
+    <section>right</section>
+    <main>center</main>
+  </div>
+</body>
+
+</html>
