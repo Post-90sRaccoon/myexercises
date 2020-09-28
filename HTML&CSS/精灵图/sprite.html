@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    input {
+      display: none;
+    }
+
+    input+label {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-position: 0 0;
+      background-image: url(like.png);
+      xtransition: .466666s linear;
+      /* 28*1/60s 60hz屏幕 */
+    }
+
+    input:checked+label {
+      background-position: -2800px 0;
+      transition: .5s steps(28);
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Click me to star</h2>
+  <input type="checkbox" name="" id="up">
+  <label for="up"></label>
+</body>
+
+</html>
