@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .indicators {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    .indicators>li {
+      width: 15px;
+      height: 15px;
+      border: 3px solid grey;
+      border-radius: 999px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .indicators>li.active {
+      border-color: red;
+    }
+
+    .slider-imgs {
+      height: 100%;
+      width: 9999px;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      transition: 1s;
+    }
+
+    .slider-imgs li {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <slider :imgs='cats' :indicators="true" :autoplay-duration="1000"></slider>
+  </div>
+  <script>
+    Vue.component('slider', {
+      // props: ['width', 'height', 'imgs', 'buttons', 'indicators', 'autoplay', 'autoplay-duration'],
+      props: {
+        width: { default: 400, type: Number },
+        height: { default: 300, type: Number },
+        imgs: { required: true, type: Array }, //这个属性必须传 而且是个数组
+        buttons: { default: true, type: Boolean },
+        indicators: { default: false, type: Boolean },
+        autoplay: { default: true, type: Boolean },
+        autoplayDuration: { default: 3000, type: Number }, //注意这里的大写代表中划线
+      },
+      // <div :style="{position:'relative',border:'1px solid black',width:width+'px',height:height+'px'}">
+      // <button style="position: absolute;top:0;bottom:0;height:30px;margin:auto;" @click="prev">prev</button>
+      template: `
+       <div :style="wrapperStyle" @mouseenter="pause" @mouseleave="resume">
+          <ul :style="{left:-currentIdx * width +'px'}" class="slider-imgs">
+            <li v-for="img of imgs">
+              <img :width="width" :height="height" :src="img">
+            </li>
+          </ul>
+          <button v-if="buttons" style="left:0" :style="btnStyle" @click="prev">prev</button>
+          <button v-if="buttons" style="right:0" :style="btnStyle" @click="next">next</button>
+          <ul v-if="indicators" class="indicators">
+            <li v-for="(img,index) of imgs" @click="currentIdx = index" :class="{active:currentIdx == index}"></li>
+          </ul>
+        </div>
+      `,
+      data() {
+        return {
+          intervalId: -1,
+          currentIdx: 0,
+          wrapperStyle: {
+            overflow: 'hidden',
+            position: 'relative',
+            border: '1px solid black',
+            width: this.width + 'px',
+            height: this.height + 'px'
+          },
+          btnStyle: {
+            position: 'absolute',
+            top: '0',
+            bottom: '0',
+            height: '30px',
+            margin: 'auto',
+
+          }
+        }
+      },
+      methods: {
+        prev() {
+          console.log('before', this.currentIdx)
+          if (this.currentIdx == 0) {
+            this.currentIdx = this.imgs.length - 1
+          } else {
+            this.currentIdx--
+          }
+        },
+        next() {
+          if (this.currentIdx == this.imgs.length - 1) {
+            this.currentIdx = 0
+          } else {
+            this.currentIdx++
+          }
+        },
+        pause() {
+          clearInterval(this.intervalId)
+        },
+        resume() {
+          if (this.autoplay) {
+            this.intervalId = setInterval(() => {
+              this.next()
+            }, this.autoplayDuration)
+          }
+        }
+      },
+      mounted() {
+        this.resume()
+      }
+    })
+
+    let app = new Vue({
+      el: '.container',
+      data: {
+        cats: [
+          'https://xieranmaya.github.io/images/cats/stock-photo-135626379.jpg',
+          'https://xieranmaya.github.io/images/cats/stock-photo-79250373.jpg',
+          'https://xieranmaya.github.io/images/cats/stock-photo-147969173.jpg',
+          'https://xieranmaya.github.io/images/cats/stock-photo-138378295.jpg',
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>
