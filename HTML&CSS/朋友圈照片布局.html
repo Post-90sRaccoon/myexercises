@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
+      width: 300px;
+      height: 300px;
+    }
+
+    ul li {
+      float: left;
+      border: 1px solid red;
+      box-sizing: border-box;
+    }
+
+    ul li:first-child:last-child {
+      width: 100%;
+    }
+
+    ul li::before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+
+    /* 使宽等于高  */
+    ul li:first-child:nth-last-child(2),
+    ul li:first-child:nth-last-child(2)~li {
+      width: 50%;
+    }
+
+    ul li:first-child:nth-last-child(3),
+    ul li:first-child:nth-last-child(3)~li {
+      width: 33.33%;
+    }
+
+    ul li:first-child:nth-last-child(4),
+    ul li:first-child:nth-last-child(4)~li {
+      width: 50%;
+    }
+
+    ul li:first-child:nth-last-child(n+5),
+    ul li:first-child:nth-last-child(n+5)~li {
+      width: 33.33%;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</body>
+
+</html>
