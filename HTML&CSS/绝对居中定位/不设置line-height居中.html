@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [a] {
+      height: 300px;
+      text-align: center;
+      font-size: 0;
+    }
+
+    [a]::before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    /* 伪元素和父元素高度一样 撑开行框中点对准父元素中点 */
+    [a] span {
+      font-size: 16px;
+      vertical-align: middle;
+      display: inline-block;
+      /* 多行文字不会拆开span被顶出去 */
+      text-align: left;
+      /* 单行居中 多行居左 */
+    }
+  </style>
+</head>
+
+<body>
+  <div a>
+    <span>foofdasf dfsafdsad同人文额TV为被他吃饭惹我TV疼痛v为TV个人股五万个布娃娃人他VB他惹我VB个</span>
+  </div>
+</body>
+
+</html>
