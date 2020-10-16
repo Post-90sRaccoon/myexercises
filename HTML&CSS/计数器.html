@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [name="d"]:checked {
+      counter-increment: bin 1;
+    }
+
+    [name="c"]:checked {
+      counter-increment: bin 2;
+    }
+
+    [name="b"]:checked {
+      counter-increment: bin 4;
+    }
+
+    [name="a"]:checked {
+      counter-increment: bin 8;
+    }
+
+    div span::before {
+      content: counter(bin);
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <input type="checkbox" name="a" id="">
+    <input type="checkbox" name="b" id="">
+    <input type="checkbox" name="c" id="">
+    <input type="checkbox" name="d" id="">
+    <span></span>
+  </div>
+</body>
+
+</html>
