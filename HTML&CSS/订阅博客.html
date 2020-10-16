@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    div {
+      height: 100px;
+      width: 200px;
+      position: relative;
+    }
+
+    span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: 1s;
+    }
+
+    div:hover span {
+      font-size: 40px;
+    }
+
+    section {
+      margin-top: 0;
+      xheight: 20px;
+      padding-top: 80px;
+      transition: 1s;
+    }
+
+    section:hover {
+      font-size: 40px;
+      padding-top: 49px;
+    }
+
+    header {
+      border: 2px solid;
+      padding-top: 50px;
+      height: 50px;
+      background-clip: content-box;
+      background-color: magenta;
+      line-height: 78px;
+      transition: 2s;
+    }
+
+    header:hover {
+      line-height: 48px;
+      font-size: 40px;
+    }
+
+    main {
+      display: table-cell;
+      /* 表单元格默认百分比 */
+      height: 100px;
+      border: 1px solid #000;
+      width: 200px;
+      vertical-align: bottom;
+      transition: 1s;
+    }
+
+    main:hover {
+      font-size: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>订阅博客</header>
+  <div>
+    <span>abcd</span>
+  </div>
+  <section>
+    订阅博客
+  </section>
+  <main>
+    订阅博客
+  </main>
+</body>
+
+</html>
