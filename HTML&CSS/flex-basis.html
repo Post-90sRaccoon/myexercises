@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      display: flex;
+      border: 5px solid #000;
+    }
+
+    @media(max-width:600px) {
+      div {
+        flex-direction: column;
+      }
+    }
+
+    [a] {
+      flex-basis: 100px;
+      width: 100%;
+      /* 小于600px 撑开父元素宽度 */
+      background-color: red;
+      height: 200px;
+      flex-grow: 1;
+    }
+
+    [b] {
+      flex-basis: 50px;
+      background-color: green;
+      flex-grow: 1;
+    }
+
+    [c] {
+      flex-basis: 100px;
+      background-color: yellow;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <section a>aa</section>
+    <section b>bb</section>
+    <section c>cc</section>
+  </div>
+</body>
+
+</html>
