@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      button {
+        display: block;
+        margin: 80px auto;
+        font-size: 50px;
+        background-color: #B71212;
+        color: white;
+        border: none;
+        border-radius: .1em;
+      }
+
+      [aria-label] {
+        position: relative;
+      }
+
+      [aria-label]:hover::before,
+      [aria-label]:hover::after {
+        opacity: 1;
+      }
+
+      [aria-label]::before {
+        opacity: 0;
+        box-sizing: border-box;
+        transition: .6s;
+        content: attr(aria-label);
+        position: absolute;
+        background-color: black;
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 3px;
+      }
+
+      [aria-label]::after {
+        opacity: 0;
+        box-sizing: border-box;
+        transition: .6s;
+        position: absolute;
+        content: '';
+        border: 5px solid transparent;
+        width: 0;
+        height: 0;
+        z-index: 100;
+      }
+
+      /* 默认显示方向为上 */
+      [aria-label]::before {
+        left: 50%;
+        bottom: 100%;
+        transform: translate(-50%) translatey(-5px);
+      }
+
+      [aria-label]:hover::before {
+        transform: translate(-50%) translatey(-5px) translatey(-5px);
+      }
+
+      [aria-label]::after {
+        border-top-color: black;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%) translatey(-5px);
+      }
+
+      [aria-label]:hover::after {
+        transform: translate(-50%) translatey(-5px) translatey(-5px);
+
+      }
+
+      /* 添加方向 */
+      [data-balloon-pos="up"]::before {
+        left: 50%;
+        bottom: 100%;
+        transform: translate(-50%) translatey(-5px);
+      }
+
+      [data-balloon-pos="up"]::after {
+        border-top-color: black;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%) translatey(-5px);
+      }
+
+      [data-balloon-pos="up"]:hover::before,
+      [data-balloon-pos="up"]:hover::after {
+        transform: translate(-50%) translatey(-5px) translatey(-5px);
+      }
+
+
+      [data-balloon-pos="down"]::before {
+        left: 50%;
+        top: 100%;
+        right: auto;
+        bottom: auto;
+        transform: translate(-50%) translatey(5px);
+      }
+
+      [data-balloon-pos="down"]::after {
+        border-color: transparent;
+        border-bottom-color: black;
+        left: 50%;
+        bottom: 0;
+        right: auto;
+        top: auto;
+        transform: translate(-50%) translatey(5px);
+      }
+
+      [data-balloon-pos="down"]:hover::before,
+      [data-balloon-pos="down"]:hover::after {
+        transform: translate(-50%) translatey(5px) translatey(5px);
+      }
+
+      [data-balloon-pos="left"]::before {
+        top: 50%;
+        right: 100%;
+        left: auto;
+        bottom: auto;
+        transform: translatey(-50%) translatex(-5px);
+      }
+
+      [data-balloon-pos="left"]::after {
+        border-color: transparent;
+        border-left-color: black;
+        top: 50%;
+        left: 0;
+        right: auto;
+        bottom: auto;
+        transform: translatey(-50%) translatex(-5px);
+      }
+
+      [data-balloon-pos="left"]:hover::before,
+      [data-balloon-pos="left"]:hover::after {
+        transform: translatey(-50%) translatex(-5px) translatex(-5px);
+      }
+
+
+      [data-balloon-pos="right"]::before {
+        top: 50%;
+        left: 100%;
+        bottom: auto;
+        right: auto;
+        transform: translatey(-50%) translatex(5px);
+      }
+
+      [data-balloon-pos="right"]::after {
+        border-color: transparent;
+        border-right-color: black;
+        top: 50%;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        transform: translatey(-50%) translatex(5px);
+      }
+
+      [data-balloon-pos="right"]:hover::before,
+      [data-balloon-pos="right"]:hover::after {
+        transform: translatey(-50%) translatex(5px) translatex(5px);
+      }
+
+      /* 设置大小 */
+      [data-balloon-length="small"]::before {
+        width: 80px;
+      }
+
+      [data-balloon-length="medium"]::before {
+        width: 150px;
+      }
+
+      [data-balloon-length="large"]::before {
+        width: 260px;
+      }
+
+      [data-balloon-length="xlarge"]::before {
+        width: 380px;
+      }
+
+      [data-balloon-length="fit"]::before {
+        width: 100%;
+      }
+
+      /* 去掉动画 */
+      [data-balloon-blunt]::before,
+      [data-balloon-blunt]::after {
+        transition: none;
+      }
+
+      /*直接显示 */
+      [data-balloon-visible][data-balloon-pos="down"]::before,
+      [data-balloon-visible][data-balloon-pos="down"]::after {
+        opacity: 1;
+        transform: translate(-50%) translatey(5px) translatey(5px);
+      }
+
+      [data-balloon-visible][data-balloon-pos="up"]::before,
+      [data-balloon-visible][data-balloon-pos="up"]::after {
+        opacity: 1;
+        transform: translate(-50%) translatey(-5px) translatey(-5px);
+      }
+
+      [data-balloon-visible][data-balloon-pos="left"]::before,
+      [data-balloon-visible][data-balloon-pos="left"]::after {
+        opacity: 1;
+        transform: translatey(-50%) translatex(-5px) translatex(-5px);
+      }
+
+      [data-balloon-visible][data-balloon-pos="right"]::before,
+      [data-balloon-visible][data-balloon-pos="right"]::after {
+        opacity: 1;
+        transform: translatey(-50%) translatex(5px) translatex(5px);
+      }
+    </style>
+  </head>
+
+<body>
+  <button aria-label="hello">hello</button>
+  <button aria-label="hello" data-balloon-pos="up" data-balloon-length="fit" data-balloon-visible>hello</button>
+  <button aria-label="hello" data-balloon-pos="down" data-balloon-blunt>hello</button>
+  <button aria-label="hello" data-balloon-pos="left">hello</button>
+  <button aria-label="hello" data-balloon-pos="right">hello</button>
+</body>
+
+</html>
