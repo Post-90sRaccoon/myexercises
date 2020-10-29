@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+
+  function line(x1, y1, x2, y2) {
+    ctx.strokeStyle = 'black'
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.stroke()
+  }
+  /**
+   *
+画一条实线
+画一条一个实点一个空点的虚线
+画一条两个实点两个空点的虚线
+画一条三个实点两个空点的虚线
+画一条45度的斜线
+画一条跨越画布左上角和右下角的对角线
+画一个空心矩形
+画一个实心矩形
+画一个rgb色彩空间的某一面
+画一个空心的圆
+画一个实心的圆
+画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  for (let x = 0; x < 400; x++) {
+    dot(x, 20, 'rgb(0,0,0)')
+  }
+  for (let x = 0; x < 400; x += 2) {
+    dot(x, 40, 'hsl(0,0,0)')
+  }
+  for (let x = 0; x < 400; x += 4) {
+    dot(x, 60, 'red')
+    dot(x + 1, 60, 'red')
+  }
+  for (let x = 0; x < 400; x += 5) {
+    dot(x, 80, 'red')
+    dot(x + 1, 80, 'red')
+    dot(x + 2, 80, 'red')
+  }
+  for (let x = 0; x < 400; x++) {
+    if (x % 35 < 15) {
+      dot(x, 100, 'green')
+    }
+  }
+  for (let c = 0; c < 300; c++) {
+    dot(c, c, 'aqua')
+  }
+  // for (let c = 0; c < 300; c++) {
+  //   dot(c / 300 * 400 | 0, c, 'aqua')
+  // }
+  // 有断点 水平方向画400个
+  for (let c = 0; c < 400; c++) {
+    dot(c, c / 400 * 300, 'aqua')
+  }
+
+  for (let x = 50; x < 100; x++) {
+    dot(x, 120, 'red')
+    dot(x, 170, 'red')
+  }
+  for (let y = 120; y <= 170; y++) {
+    dot(50, y, 'red')
+    dot(100, y, 'red')
+  }
+
+  for (let x = 50; x < 100; x++) {
+    for (let y = 200; y < 250; y++) {
+      dot(x, y)
+    }
+  }
+
+
+  for (let r = 0; r < 256; r++) {
+    for (let b = 0; b < 256; b++) {
+      dot(r / 4 + 150, b / 4 + 150, 'rgb(' + r + ',255,' + b + ')')
+    }
+  }
+
+  for (let x = 0; x < 100; x++) {
+    for (let y = 0; y < 100; y++) {
+      dot(x, y, 'rgb(' + x / 100 * 256 + ',255,' + y / 100 * 256 + ')')
+    }
+  }
+
+  for (let z = 0; z < 2 * Math.PI; z += 0.03) {
+    let x = 50 * Math.cos(z)
+    let y = 50 * Math.sin(z)
+    dot(x + 200, y + 150)
+    // line(200,150,x+200,y+150)
+  }
+
+  for (let x = -100; x <= 100; x++) {
+    let y = Math.sqrt(10000 - x * x)
+    dot(x + 200, y + 150)
+    dot(x + 200, y + 150)
+    line(x + 200, y + 150, x + 200, -y + 150)
+  }
+
+  for (let x = 0; x < 400; x++) {
+    let y = 10 * Math.sin(x / 10)
+    dot(x, y + 150, 'red')
+  }
+</script>
+
+</html>
