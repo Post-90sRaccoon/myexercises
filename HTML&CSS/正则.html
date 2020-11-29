@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      position: relative;
+    }
+
+    #string {
+      background-color: transparent;
+      /* color: transparent; */
+    }
+
+    #result {
+      pointer-events: none;
+      font: 400 13.3333px monospace;
+      font-style: normal;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      z-index: -1;
+      color: transparent;
+    }
+
+    em {
+      font-style: normal;
+      background-color: red;
+    }
+
+    em:empty {
+      display: inline-block;
+      xwidth: 1px;
+      height: 1.2em;
+      position: relative;
+    }
+
+    /*不影响字向后偏移  */
+    em:empty::before {
+      content: '';
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      background-color: red;
+      xleft: -1px;
+      transform: translate(-0.5px);
+    }
+  </style>
+</head>
+
+<body>
+  Input RegExp: <input type="text" id="regexp">
+  <br>
+  <div class="wrap">
+    <textarea spellcheck="false" id="string" cols="30" rows="10">foobarfoobazfoobazfoo</textarea>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    let regexpInput = document.getElementById('regexp')
+    let stringInput = document.getElementById('string')
+    let resultDiv = document.getElementById('result')
+
+    regexpInput.onkeyup = run
+    stringInput.onkeyup = run
+
+    function run() {
+      let re = new RegExp(regexpInput.value, 'g')
+      // input里面所见即所得 不需要加\转义
+      let str = stringInput.value
+
+      // 如果字符串为空 直接放到里面去
+      if (regexpInput.value == "") {
+        resultDiv.innerHTML = str
+        return
+      }
+
+      let result = getResult(re, str)
+
+      resultDiv.innerHTML = result
+    }
+    run()
+    // 假设re总是带g的正则表达式 创建后是加不了g的
+    function getResult(re, str) {
+      let result = ''
+      let match
+      let lastIndex = 0
+
+      while (match = re.exec(str)) {
+        result += str.slice(lastIndex, match.index)
+        result += '<em>' + match[0] + '</em>'
+        lastIndex = re.lastIndex
+        if (match[0] == '') {
+          re.lastIndex = re.lastIndex + 1
+          // 防止re为空卡死
+        }
+      }
+      result += str.slice(lastIndex)
+      return result
+    }
+  </script>
+</body>
+
+</html>
