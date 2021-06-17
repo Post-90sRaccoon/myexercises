@@ -1,0 +1,169 @@
+/* nav */
+.left{
+  margin: auto;
+  min-width: 1226px;
+  width: 1226px;
+  /* 防止缩小折行 */
+  height: 100%;
+  background-color: rgb(51,51,51);
+}
+.left a{
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgb(176,176,176);
+}
+.left li{
+   padding: 12px 3px;
+  /* border-right: 1px solid rgb(60,60,60); */
+  position: relative;
+  cursor: pointer;
+}
+.left li:hover>a{
+  color: white;
+}
+.verticalline{
+  color: rgb(66,66,66);
+  font-size: 3px;
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 8px;
+}
+.left li:nth-last-child(5){
+  border-right: none;
+}
+nav{
+  font-size: 0;
+  background-color: rgb(51,51,51);
+  height: 40px;
+}
+#codeimage{
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left:-25px;
+  box-shadow: 0 1px 5px #aaa;
+  width: 125px;
+  height: 0px;
+  z-index: 50;
+  transition:.3s;
+  overflow: hidden;
+  background-color: white;
+}
+#download:hover>a+#codeimage{
+  height: 150px;
+}
+#codeimage img{
+  width: 85px;
+  height: 85px;
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#download::before{
+  content: '';
+  border: 7px solid ;
+  font-size: 0;
+  border-top-width: 0;
+  border-color:transparent transparent rgb(248,248,248) transparent;
+  position: absolute;
+  top:33px;
+  left: 25px;
+  display: none;
+}
+#download:hover::before{
+  display: block;
+}
+#codeimage::after{
+  content: '小米商城APP';
+  font-size: 14px;
+  position: absolute;
+  top: 114px;
+  left: 20px;
+}
+#login{
+  margin-left: 240px;
+}
+#cart{
+  margin-left: 20px;
+  background-color: rgb(66,66,66);
+  width: 120px;
+  text-align: center;
+  padding: 0;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  padding: 5px;
+}
+#cart a{
+  position: absolute;
+  top: 12px;
+  left: 40px;
+}
+#cart::before{
+  content:'';
+   background-image: url(../img/cart2.png);
+   background-repeat: no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+#cart:hover>a{
+  color: rgb(255,103,0);
+}
+#cart:hover::before{
+  background-image: url(../img/cart1.png);
+}
+
+#cart>span{
+  font-size: 12px;
+  display: inline-block;
+  width: 315px;
+  z-index: 45;
+  height: 0px;
+  box-shadow:-3px 3px 3px -3px #aaa,3px 3px 3px -3px #aaa;
+  position: absolute;
+  background-color: white;
+  right: 0;
+  top: 100%;
+  padding: 0;
+  transition: .3s;
+  overflow: hidden;
+}
+#cart:hover{
+  background-color: #fff;
+  border-bottom:none;
+}
+#cart:hover>span{
+  height: 100px;
+  border-top:none;
+}
+
+#cart>span::after{
+  content: '购物车中还没有商品,赶紧选购吧！';
+   position: absolute;
+    height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 12px;
+  visibility: hidden;
+  transition: .1s;
+}
+#cart:hover>span:after{
+  visibility: visible;
+}
+.verticalline{
+  font-size: 12px;
+}

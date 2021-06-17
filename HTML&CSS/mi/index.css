@@ -1,0 +1,24 @@
+body{
+  margin: 0;
+  min-width: 1226px;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+li{
+  display: inline-block;
+}
+
+a{
+  text-decoration: none;
+}
+*{
+  xbackground-color: rgb(0,0,0,0.1);
+}
+
+
+/* main */
+main{
+  width: 100%;
+}

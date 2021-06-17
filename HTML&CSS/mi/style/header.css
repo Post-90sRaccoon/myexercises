@@ -1,0 +1,248 @@
+/* home */
+#home{
+   box-sizing: border-box;
+   width: 55px;
+   height: 55px;
+   position: relative;
+   overflow: hidden;
+   display: inline-block;
+   cursor: pointer;
+   vertical-align: middle;
+}
+#home img{
+  position: absolute;
+  transition: .3s;
+}
+#home1{
+  left: 0;
+}
+#home2{
+  top: 0;
+  left: -100%;
+}
+#home:hover #home1{
+  left: 100%;
+}
+#home:hover #home2{
+  left: 0;
+}
+
+
+
+
+
+/* category */
+.category{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 170px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.category>li{
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom:40px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+.category>li:hover{
+  color: rgb(255,103,82);
+}
+
+.category.down:hover .detail{
+  height: 230px;
+  border-top: 1px solid rgb(224, 224, 224);
+  border-bottom: 1px solid rgb(224, 224, 224);
+  box-shadow: 0 5px 3px -5px #aaa;
+  transition-delay: 0;
+}
+.category.down>li:hover>.detail{
+  z-index: 40;
+}
+.category.nodown{
+  margin-left: 0;
+}
+
+
+
+
+
+/* detali */
+.detail{
+  display: inline-block;
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  /*相对于包含块*/
+  /* height: 230px; */
+  height: 0;
+  cursor: initial;
+  z-index: 10;
+  overflow: hidden;
+  background-color: white;
+  transition:.3s;
+}
+.detail>ul{
+  display: inline-block;
+  min-width: 1226px;
+  width: 1226px;
+  height: 90%;
+  left: 0;
+  right: 0;
+  top: 6%;
+  bottom: 0;
+  margin: auto;
+  vertical-align: middle;
+  cursor: pointer;
+  position: absolute;
+}
+.detail-list{
+  box-sizing: border-box;
+  width: 200px;
+  height: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.detail-list>a{
+   border-right: 1px solid rgb(224, 224, 224);
+   width: 100%;
+   display: block;
+}
+.detail-list:last-child>a{
+   border-right: none;
+}
+.detail-list>a>img{
+  display: block;
+  margin: auto;
+  width: 160px;
+  height: 110px;
+  box-sizing: border-box;
+
+}
+
+.detail-name,.detail-price{
+  display: inline-block;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+}
+.detail-name{
+  margin-top: 23px;
+  color: black !important;
+  /* 为了不受父元素被hover的影响 */
+}
+.detail-price{
+  color: rgb(255,103,82);
+}
+
+
+
+
+
+
+
+/* search */
+#search{
+  border: 1px solid rgb(224, 224, 224);
+  width: 245px;
+  height: 50px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 85px;
+  font-size: 14px;
+  padding-left: 10px;
+  position: relative;
+}
+#icon-search{
+  display: inline-block;
+  border: 1px solid rgb(224, 224, 224);
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-left: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-image: url(../img/search1.png);
+  background-position: 0 -1px;
+}
+#icon-search:hover{
+  background-image: url(../img/search2.png);
+}
+
+#search:focus,#search:focus~#icon-search,#search:focus~.search-down{
+  border-color:rgb(255,103,82);
+  outline: none;
+}
+#search:focus~#inner{
+  display: none;
+}
+#search:focus~.search-down{
+  visibility: visible;
+}
+.search-inner{
+  font-size: 12px;
+  background-color:rgb(238,238,238);
+  display: inline-block;
+  color: rgb(117,117,117);
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 2px;
+}
+.search-inner:hover{
+  background-color: rgb(255,103,0);
+  color: white;
+}
+#inner{
+  position: absolute;
+  top:30%;
+  right:15%;
+}
+#search-box{
+  display: inline-block;
+  height: 50px;
+  position: relative;
+  vertical-align: middle;
+}
+.search-down{
+  width: 245px;
+  height: 301px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 85px;
+  z-index: 5;
+  border:1px solid rgb(224, 224, 224);
+  border-top: none;
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  visibility: hidden;
+}
+.search-down>li{
+  position: relative;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 15px;
+}
+.search-down>li:hover{
+  background-color: rgb(250,250,250);
+}
+
+.search-down:hover{
+  visibility: visible;
+}
+/* header */
+header{
+  display:block;
+  min-width: 1226px;
+  width:1226px;
+  margin: auto;
+  font-size: 0;
+}
