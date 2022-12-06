@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ani {
+      animation: message 2s linear
+    }
+
+    @keyframes message {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+
+      5%,
+      95% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    class MessageWrapper extends React.Component {
+      state = {
+        list: []
+      }
+      add = (params = { content: '', type: 'info', key: '' }) => {
+        this.setState({
+          list: this.state.list.concat([params])
+        })
+      }
+      handleHide = (msg) => {
+        this.setState({
+          list: this.state.list.filter(item => item != msg)
+        })
+      }
+      render() {
+        return <div className="message-wrapper">
+          {
+            this.state.list.map(item => <Message onHide={this.handleHide.bind(this, item)}>{...item}</Message>)
+          }
+        </div>
+      }
+    }
+
+
+    function Message(props) {
+      return <div className="message">
+        <div className="message_content" onAnimationEnd={props.Hide}>
+          <span className={`message_icon ${props.type}`}></span>
+          {props.content}
+        </div>
+      </div>
+    }
+
+    export const message = (function () {
+      let container = document.getElementById('message-container')
+      if (!container) {
+        container = document.createElement('div')
+        container.setAttribute('id', 'message-container')
+        document.body.appendChild(container)
+      }
+
+      const MessageWrapper = ReactDOM.render(
+        <MessageWrapper />,
+        container
+      );
+
+      return {
+        warn: (content) => {
+          MessageWrapper.add({
+            key: getUniqueKey(),
+            content,
+            type: 'warn'
+          })
+        },
+        error: (content) => {
+          MessageWrapper.add({
+            key: getUniqueKey(),
+            content,
+            type: 'error'
+          })
+        },
+        success: (content) => {
+          MessageWrapper.add({
+            key: getUniqueKey(),
+            content,
+            type: 'success'
+          })
+        },
+      }
+    })()
+  </script>
+</body>
+
+</html>
